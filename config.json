@@ -1,0 +1,39 @@
+{
+  "workers": {
+    "Dovydas": {
+      "is_in_all_positions": true,
+      "date_exceptions": ["2023-01-22", "2023-02-19"]
+    },
+    "Tomas": {
+      "is_in_all_positions": true,
+      "date_exceptions": ["2023-01-08", "2023-01-29", "2023-02-12"]
+    },
+    "Andrius": {
+      "is_in_all_positions": true,
+      "appearance_skips": 1,
+      "date_exceptions": ["2023-01-15", "2023-02-05", "2023-02-26"]
+    },
+    "Valia": {
+      "is_in_all_positions": true,
+      "date_exceptions": ["2023-01-22", "2023-02-19"]
+    },
+    "Volodia": {
+      "positions": ["Kamera"],
+      "positions_with_help": ["Mix"]
+    },
+    "Mykolas": {
+      "is_in_all_positions": true
+    },
+    "Dima": {
+      "is_in_all_positions": true,
+      "date_exceptions": ["2023-01-15", "2023-02-05", "2023-02-26"]
+    },
+    "Ilya": {
+      "positions_with_help": ["Kamera"]
+    }
+  },
+  "positions": ["Mix", "Kamera"],
+  "starting_date": "2023-01-01",
+  "ending_date": "2023-02-26",
+  "interval": 7
+}
