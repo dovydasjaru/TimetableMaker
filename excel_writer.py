@@ -13,11 +13,6 @@ def write_timetable(table: Timetable):
 
     data_to_write = DataFrame(data=columns, index=table.positions)
     writer = ExcelWriter(settings.excel_file)
-    data_to_write.to_excel(writer, sheet_name='my_analysis')
+    data_to_write.to_excel(writer, sheet_name='Timetable')
 
-    for column in data_to_write:
-        column_width = max(data_to_write[column].astype(str).map(len).max(), len(column))
-        col_idx = data_to_write.columns.get_loc(column) + 1
-        writer.sheets['my_analysis'].set_column(col_idx, col_idx, column_width)
-
-    writer.save()
+    writer.close()

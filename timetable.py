@@ -95,7 +95,7 @@ def make_timetable(config: Configuration) -> Timetable:
 
 def assign_trainees_to_trainers(slotted_trainers: Dict[date, Slot], trainees: Dict[str, List[Worker]]):
     for position, trainees_for_position in trainees.items():
-        random_dates = random.sample(slotted_trainers.keys(), len(slotted_trainers.keys()))
+        random_dates = random.sample(list(slotted_trainers.keys()), len(slotted_trainers.keys()))
 
         for trainee in trainees_for_position:
             for possible_date in random_dates:
