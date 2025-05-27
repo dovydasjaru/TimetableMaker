@@ -12,7 +12,7 @@ def write_timetable(table: Timetable):
         columns[slot_date.isoformat()] = new_column
 
     data_to_write = DataFrame(data=columns, index=table.positions)
-    writer = ExcelWriter(settings.excel_file)
+    writer = ExcelWriter(settings.file_name + ".xlsx")
     data_to_write.to_excel(writer, sheet_name='Timetable')
 
     writer.close()
