@@ -41,6 +41,7 @@ class Configuration:
     interval: timedelta
     starting_slot_date: date
     last_slot_date: date
+    default_time: str
     positions: List[str]
     workers: Dict[str, Worker]
 
@@ -51,6 +52,7 @@ class Configuration:
         self.interval = timedelta(days=config["interval"])
         self.starting_slot_date = date.fromisoformat(config["starting_date"])
         self.last_slot_date = date.fromisoformat(config["ending_date"])
+        self.default_time = config["default_time"]
         self.positions = config["positions"]
         worker_dict: dict = config["workers"]
         self.workers = {}

@@ -209,3 +209,4 @@ def make_deep_copy(item: Dict[date, Dict[str, List[str]]]) -> Dict[date, Dict[st
             deep_copy[date_key][str_key] = list_value.copy()
 
     return deep_copy
+print("")
