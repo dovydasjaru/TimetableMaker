@@ -1,6 +1,7 @@
-from datetime import date
+import datetime
 from timetable import Timetable
 import settings
+import uuid
 
 def write_timetable(table: Timetable, default_time: str):
     """
@@ -21,12 +22,14 @@ def write_timetable(table: Timetable, default_time: str):
         file.write("END:VCALENDAR")
 
 
-def __make_calendar_event(worker_names: list[str], date: date, default_time: str) -> str:
+def __make_calendar_event(worker_names: list[str], date: datetime.date, default_time: str) -> str:
     event = "BEGIN:VEVENT\n"
     event += "DTSTART:" + date.strftime("%Y%m%d") + "T" + default_time + "\n"
     event += "DTEND:" + date.strftime("%Y%m%d") + "T" + default_time + "\n"
+    event += "DTSTAMP:" + datetime.date.today().strftime("%Y%m%d") + "T000000\n"
+    event += "UID:" + str(uuid.uuid4()) + "\n"
     event += "SUMMARY:" + settings.together_separator.join(worker_names) + "\n"
-    event += "START:VALARM\n"
+    event += "BEGIN:VALARM\n"
     event += "ACTION:DISPLAY\n"
     event += "TRIGGER:-P" + str(settings.event_reminder_days) + "DT0H0M0S\n"
     event += "DESCRIPTION:" + settings.together_separator.join(worker_names) + "\n"
